@@ -1,0 +1,20 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: pihole
+resources:
+  - namespace.yaml
+  - pvc.yaml
+  - configmap.yaml
+  - service.yaml
+  - deployment.yaml
+
+labels:
+  - includeSelectors: true
+    pairs:
+      app: pihole
+      app.kubernetes.io/name: pihole
+      app.kubernetes.io/instance: pihole
+      app.kubernetes.io/component: dns-server
+      app.kubernetes.io/part-of: pihole-system
+      app.kubernetes.io/managed-by: kustomize
