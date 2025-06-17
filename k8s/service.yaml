@@ -36,3 +36,4 @@ spec:
       targetPort: 53
       protocol: UDP
   type: LoadBalancer
+  loadBalancerIP: 10.0.3.207
